@@ -1,0 +1,48 @@
+#!/usr/bin/env coffee
+
+snortfilter = require '../index'
+program = require 'commander'
+{readFileSync, writeFileSync, readdirSync, lstatSync} = require 'fs'
+{join, basename, extname, existsSync} = require 'path'
+mkdirp = require 'mkdirp'
+
+program
+  .version('0.0.1')
+  .option('-i --input [folder]', 'Specify input folder', '.')
+  .option('-o --output [folder]', 'Specify output folder', '.')
+  .option('-d --delimit', 'Adds pipes between rules')
+  .option('-s --strip', 'Strips newlines')
+  .parse(process.argv)
+
+indir = join process.cwd(), program.input
+outdir = join process.cwd(), program.output
+mkdirp.sync outdir unless existsSync outdir
+
+throw 'Invalid input folder' unless lstatSync(indir).isDirectory()
+throw 'Invalid output folder' unless lstatSync(outdir).isDirectory()
+
+opt =
+  strip: program.strip
+  delimit: program.delimit
+
+count = 0
+renderFolder = (folder, output) ->
+  files = readdirSync folder
+  for file in files
+    file = join folder, file
+    stat = lstatSync file
+    
+    if stat.isDirectory()
+      outdir = join output, basename file
+      mkdirp.sync outdir unless existsSync outdir
+      renderFolder file, outdir
+    else
+      name = basename file
+      savepath = join output, name
+      contents = String readFileSync file
+      newcontents = snortfilter.filter contents, opt
+      writeFileSync savepath, newcontents
+      ++count
+
+renderFolder indir, outdir
+console.log "#{count} file#{if count is 1 then '' else 's'} from '#{program.input}' filtered to '#{program.output}'"

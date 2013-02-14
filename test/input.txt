@@ -1,0 +1,7 @@
+// another comment
+alert tcp any any -> any any (sid:1234567; content:"|S0 M3 DA TA H3 R3|"; rev:2;
+ msg:"SOMEMESSAGE.123456677898645.User.Agent.detected"; priority:10;)
+
+// some comment
+alert 
+tcp any any -> any any (sid:891011; content:"|S0 M3 DA TA H3 R3 TH AT IS LO NG ER TH AN TH ED AT AB EF OR EI T|"; rev:1; msg:"SOME_OTHER_MESSAGE.3453473452.Possible.Traffic.command.is.something.cool"; priority:;)

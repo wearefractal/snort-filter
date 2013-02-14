@@ -1,18 +1,20 @@
 {
-   "name":"APPNAME",
-   "description":"Nothing here yet",
+   "name":"snort-filter",
+   "description":"CLI for helping to filter snort rules from files",
    "version":"0.0.1",
-   "homepage":"http://github.com/wearefractal/APPNAME",
-   "repository":"git://github.com/wearefractal/APPNAME.git",
+   "homepage":"http://github.com/wearefractal/snort-filter",
+   "repository":"git://github.com/wearefractal/snort-filter.git",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
    "main":"./index.js",
-   
-   "dependencies":{
-      "coffee-script":"*"
+
+   "bin":{
+      "snort-filter":"./bin/snort-filter"
    },
-   "devDependencies":{
-      "mocha":"*",
-      "should":"*"
+
+   "dependencies":{
+      "coffee-script":"*",
+      "commander": "*",
+      "mkdirp": "*"
    },
    "scripts":{
       "test":"mocha --compilers coffee:coffee-script"
@@ -23,7 +25,7 @@
    "licenses":[
       {
          "type":"MIT",
-         "url":"http://github.com/wearefractal/APPNAME/raw/master/LICENSE"
+         "url":"http://github.com/wearefractal/snort-filter/raw/master/LICENSE"
       }
    ]
 }

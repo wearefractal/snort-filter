@@ -1,10 +1,10 @@
-![status](https://secure.travis-ci.org/wearefractal/APPNAME.png?branch=master)
+![status](https://secure.travis-ci.org/wearefractal/snort-filter.png?branch=master)
 
 ## Information
 
 <table>
 <tr> 
-<td>Package</td><td>APPNAME</td>
+<td>Package</td><td>snort-filter</td>
 </tr>
 <tr>
 <td>Description</td>
@@ -18,13 +18,9 @@
 
 ## Usage
 
-```coffee-script
-NOTHING HERE YET
 ```
-
-## Examples
-
-You can view more examples in the [example folder.](https://github.com/wearefractal/APPNAME/tree/master/examples)
+snort-filter -i inputdir -o outputdir
+```
 
 ## LICENSE
 
