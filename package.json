@@ -1,7 +1,7 @@
 {
    "name":"snort-filter",
    "description":"CLI for helping to filter snort rules from files",
-   "version":"0.0.1",
+   "version":"0.0.2",
    "homepage":"http://github.com/wearefractal/snort-filter",
    "repository":"git://github.com/wearefractal/snort-filter.git",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",
