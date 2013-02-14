@@ -20,6 +20,10 @@
 
 ```
 snort-filter -i inputdir -o outputdir
+
+Optional flags:
+-d adds || between rules
+-s strips newlines from rules
 ```
 
 ## LICENSE
